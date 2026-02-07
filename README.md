@@ -1,4 +1,4 @@
-# FYLs-G2P: A 1.8M Parameter G2P Engine with Context Awareness and OOV Phonics
+# FYLs-G2P: A 1.8M Parameter G2P Engine with Context Awareness and OOV Phonics (That Can Be Deployed on Almost Any Device)
 
 ## ⚡ Introduction
 
