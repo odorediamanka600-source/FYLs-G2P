@@ -248,7 +248,7 @@ class G2P():
         sentence_tokens = [self.word2idx.get(word, 1) for word in text]
         actual_sentence_length = len(sentence_tokens)
         if actual_sentence_length > 750:
-            raise RuntimeError(f"Yoo homie this shit way too long. {len(sentence_tokens)} tokens are insane.")
+            raise RuntimeError(f"too long. {len(sentence_tokens)} tokens")
         sentence_tokens = np.array((sentence_tokens + [0] * (750 - actual_sentence_length)), dtype = np.int64)
 
         ort_inputs = {self.etagger.get_inputs()[0].name: np.expand_dims(sentence_tokens, 0)}
@@ -269,7 +269,7 @@ class G2P():
                     char_tokens = [self.char2idx["<SOS>"]] + [self.char2idx.get(char, self.char2idx["-"]) for char in word] + [self.char2idx["<EOS>"]]
                     actual_chars_length = len(char_tokens)
                     if actual_chars_length > 120:
-                        raise RuntimeError(f"Yoo homie this shit way too long. {len(actual_chars_length)} tokens are insane.")
+                        raise RuntimeError(f"too long. {len(actual_chars_length)} tokens")
                     char_tokens = np.array((char_tokens + [0] * (750 - actual_chars_length)), dtype = np.int64)
 
                     ort_inputs = {self.etoddler.get_inputs()[0].name: np.expand_dims(char_tokens, 0)}
@@ -293,3 +293,4 @@ class G2P():
                 ipas.append(iv)
         
         return ipas
+
